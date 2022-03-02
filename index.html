@@ -48,7 +48,28 @@
 		</div>
 
   <div class="right">
-    ㅎㅇ
+    <pre><p>
+
+      <span style="background-color:#CEE3F6"><b>세미콜론(;)</b></span>
+      하나의 명령어 라인에서 여러개의 명령을 실행가능
+      첫 번쨰 명령이 실패해도 두번째 명령이 실행됨.
+
+      <span style="background-color:#CEE3F6"><b>파이프(|)</b></span>
+      프로세스의 통신을 위해 도입한 것으로 어떤 프로세스의 표준 출력이 다른 프로세스의
+      표준 입력으로 쓰이게 함.(앞의 실행한 명령어의 출력 결과를 뒤에 실행하는 명령의 입력값으로)
+
+      *셀 프롬프트에서는 개수 제한이 없고 주로 awk,cat,grep,more 등과 함께 사용.
+      ex)$ cat.bashrc | more
+
+      <span style="background-color:#CEE3F6"><b>더블 엔드 퍼센트(&&)</b></span>
+      다중 명령을 한 프 롬프트 안에서 실핼할 수 있게 함.
+      첫 번째 명령이 오류 없이 실행되었을 때만 두 번째 명령을 실행한다는 점에서 세미콜론과 차이가 있음.
+
+      <span style="background-color:#CEE3F6"><b>더블 버티컬 바(||)</b></span>
+      첫 번째 명령에서 오류 가 발생할 경우 뒤의 명령을 수행.
+
+      
+    </p></pre>
   </div>
 </div>
 
