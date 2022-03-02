@@ -30,7 +30,7 @@
 
         <li><a href="5AboutProcess.html">About process</a></li>
 
-        <li><a class="current" href="6Background.html">Background</a></li>
+        <li><a class="current" href="6Background.html">Background & Log</a></li>
 
         <li><a href="7AboutUser.html">About User</a></li>
 
@@ -67,6 +67,78 @@
      <span style="background-color:#CEE3F6"><b>백그라운드 프로그램 죽이기</b></span>
      $ kill
      $ kill -9 %번호 : 강제종료
+     --------------------------------------------------------------------------------------------------
+
+     <span style="background-color:#CEE3F6"><b>리눅스 로그파일 관리</b></span>
+     *logrotate == 시스템이 있는 모든 로그파일 관리, 편집, 전송, 압축 등 작업수행 가능
+     cron에 의해 주기적으로 이런작업을 할수 있다.
+
+     <span style="background-color:#CEE3F6"><b>logrotate 설치 / 제거</b></span>
+     # yum -y install logrotate << 설치
+     # yum -y remove logrotate << 제거
+
+     <span style="background-color:#CEE3F6"><b>logrotate 설정방법</b></span>
+       # vi /etc/logrotate.conf
+
+       <b>/var/log/messages {</b>                >> logrotate에 의해 작업될 로그파일의 절대경로
+         <b>monthly</b>                            >> 로그파일을 순활시킬 주기, monthly는 1달 순환, weekly는 1주, daily는 1일 순환가능
+         <b>compress</b>                           >> 순환된 파일이 gzip에 의해 압축된다 / nocompress는 압축하지 않음
+         <b>rotate 2</b>                           >> 순환되는 파일 갯수를 지정한다. 0부터 시작하게 되며 monthly로 지정했으니 2달간 로그파일이 저장되어 있음
+         <b>mail k506672@naver.com</b>           >> 순환되어 지정된 갯수를 지나게 되는 로그파일은 지정한 메일로 보내지게 된다.
+         <b>errors k506672@naver.com</b>         >> 지정된 로그파일의 logrotate 작업 중 에러가 발생하면 메일로 보내지게 된다.
+         <b>postrotate</b>                         >> logrotate 작업이 끝나고 난 후 실행할 작업을 설정해둔 것
+            <b>/bin/kill -HUP `cat /var/run/sysload.pid 2> /dev/null` 2> /dev/null || true</b>
+         <b>endscript</b>
+         <b>prerotate</b>                          >> logrotate 작업 전에 실행할 작업을 설정해둔 것
+            <b>/bin/kill -HUP `cat /var/run/sysload.pid 2> /dev/null` 2> /dev/null || true</b>
+        <b>}</b>
+
+
+     <span style="background-color:#CEE3F6"><b>시스템 로그 구성 및 로그모니터링</b></span>
+     *시스템모니터는 시스템에서 남겨지는 로그파일을 통해서 이루어짐.
+     시스템로그데몬(syslogd), 메일데몬(sendmail등), 웹데몬(httpd), 네임데몬(named), 수퍼데몬(inetd, xinetd )등 다양하다.
+     로그파일들 중에서 가장 중요한 것이 시스템로그데몬(syslogd)에서 남겨지는 로그파일.
+
+     <<참고>>
+     # ls -l /var/log
+
+     ◆ boot.log 리눅스가 부팅될때 뿌려주는 모든 메세지를 기록, 부팅시 에러나 조치사항은 이파일을 참조
+     ◆ cron 시스템 정기적인 작업에 대한 로그를 기록
+     ◆ message OS에서 보내주는 실시간 로그를 관리한다
+     ◆ secure 시스템 접속에 관한 로그파일로 누가 어떻게 어디에서 접속했는지 내용을 기록
+     ◆ xferlog ftp로 로그인 하는 사용자에 대한 로그를 기록
+     ◆ /var/spool/mail 사용자들에 대한 메일을 보관하고 있는 디렉토리, 사용자 계정 ID와 동일한 파일이 존재
+
+     <span style="background-color:#CEE3F6"><b>로그 환경파일</b></span>
+      # vi /etc/rsyslog.conf
+
+      시스템부팅 메시지는 dmesg란 명령어로 볼 수도 있으며 /var/log/dmesg란 파일을 직접 열어봐도 알 수 있다.
+      시스템로그데몬(syslogd)이 실행이 될 때(이 데몬은 시스템부팅시에 실행이됨) 환경파일(/etc/syslog.conf)을 읽게되며,
+      관련 로그를 설정된 곳의 파일에 남겨두게 된다.
+
+      <span style="background-color:#CEE3F6"><b>로그데몬 및 실행스크립트</b></span>
+      # ls -l /sbin/rsyslogd << 로그데몬 위치
+      # ls -l /etc/rsyslog.d << 로그데몬을 실행시킬 수 있는 파일
+      # systemctl start rsyslog << 로그데몬 실행
+
+      <span style="background-color:#CEE3F6"><b>inetd 또는 xinetd 로그기록 파일 모니터링</b></span>
+      - telnet이나 ftp 또는 ssh등으로 23번포트, 21번포트, 22번포트등을 타고 들어오는 접속에 관련된 로그가 가장 민감하다.
+      이 로그에 관한 기록을 하는 파일은 /var/log/secure 이다.
+
+      # tail -f /var/log/secure << inetd, xinetd로그 모니터링
+
+      <span style="background-color:#CEE3F6"><b>시스템로그 모니터링</b></span>
+      # tail -f /var/log/messages << 시스템로그 모니터링
+
+      <span style="background-color:#CEE3F6"><b>메일관련 로그 모니터링</b></span>
+      # tail -f /var/log/maillog << 메일로그 모니터링
+
+      <span style="background-color:#CEE3F6"><b>부팅로그 모니터링</b></span>
+      부팅시 에러나 장애 등 확인은 /var/log/dmesg 를 살펴보면 된다.
+      # dmesg | grep disk << 부팅 시 disk 관련 로그기록 확인
+
+      <span style="background-color:#CEE3F6"><b>cron 로그 모니터링</b></span>
+      # tail -f /var/log/cron << cron 로그 모니터링
 
    </p></pre>
 

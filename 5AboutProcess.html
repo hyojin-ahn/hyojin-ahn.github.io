@@ -28,7 +28,7 @@
 
         <li><a class="current" href="5AboutProcess.html">About process</a></li>
 
-        <li><a href="6Background.html">Background</a></li>
+        <li><a href="6Background.html">Background & Log</a></li>
 
         <li><a href="7AboutUser.html">About User</a></li>
 
@@ -65,6 +65,24 @@
      <span style="background-color:#CEE3F6"><b>그 외 프로세스 목록 확인 명령어</b></span>
      $ top
      $ htop (top과 비슷하지만, 시각적인 면에서 더 좋음)
+
+
+
+
+
+     <b>*시그널</b>
+
+     시그널은 프로세스의 보내는 일종의 이벤트로 시그널에 대한 처리의 책임은 일반적으로
+     프로세스에 있기 때문에 항상 같은 방식으로 처리가 이루어지지 않는다.
+     현재 터미널 환경에서 입력할 수 있는 특수문자들에 대해서는 <b><var style="font-size: 17px;">$ stty -e</var></b> 로 확인
+
+
+
+     <b>*사용할 수 있는 모든 시그널은 -l 옵션으로 확인 가능</b>
+
+     ex) $ kill -l
+         HUP INT QUIT ILL TRAP ABRT EMT FPE KILL BUS SEGV SYS PIPE ALRM TERM URG STOP TSTP CONT CHLD TTIN TTOU IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
+
 
    </p></pre>
 

@@ -30,7 +30,7 @@
 
         <li><a href="5AboutProcess.html">About process</a></li>
 
-        <li><a href="6Background.html">Background</a></li>
+        <li><a href="6Background.html">Background & Log</a></li>
 
         <li><a class="current" href="7AboutUser.html">About User</a></li>
 
@@ -79,6 +79,28 @@
 
      <span style="background-color:#CEE3F6"><b>로그인 (su 사용)</b></span>
      $ su - [사용자명]
+
+     <span style="background-color:#CEE3F6"><b>모든 사용자 로그인 막기</b></span>
+     # touch /etc/nologin
+     -> /etc에 nologin 파일을 생성하면 현재 접속 관리자를 제외한 나머지 모든 계정은 접근 불가
+     -> 만약 이 파일에 내용을 작성하면 FTP 또는 TELNET 접속 사용자는 해당 파일 내용 확인 가능
+
+     <span style="background-color:#CEE3F6"><b>특정 사용자 로그인 막기</b></span>
+     # vi/etc/shadow
+     -> testuser:*: PW * 처리 (* 표시를 한 사용자는 로그인 불가)
+
+     <span style="background-color:#CEE3F6"><b>가입자 mysql 실행 권한 주기</b></span>
+     # vi /etc/skel/.bash_profile
+
+     PATH1=$PATH:/$HOME/bin  <<설정 부분
+     PATH=$PATH1:/usr/local/mysql/bin <<설정 부분
+     BASH_ENV=$HOME/.bashrc
+     USERNAME=""
+     export USERNAME BASH_ENV PATH1 PATH <<설정 부분
+
+     <span style="background-color:#CEE3F6"><b>사용자 로그인시 공지사항 알리기</b></span>
+     # vi /etc/issue.net : 로그인 전 알릴내용 적기
+     # vi /etc/motd : 공지사항 내용 입력하기
    </p></pre>
 
   </section>
