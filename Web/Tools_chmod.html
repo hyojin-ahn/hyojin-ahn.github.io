@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<script type="text/javascript">
+
+var command_output;
+let octal_command;
+//var checkBoxes = [];
+var getFolderName;
+
+function getOctal(){
+
+  octal_command = 0;
+
+  checkBoxes = document.getElementsByName("chmod_checkbox");
+  getFolderName = document.getElementById("folderName").value;
+
+  for (var i = 0; i < checkBoxes.length; i++) {
+               if (checkBoxes[i].checked) {
+                   octal_command += Number(checkBoxes[i].value);
+               }
+  }
+
+  command_output = "chmod " + octal_command + " " + getFolderName;
+
+  document.getElementById("octal").value = command_output;
+}
+
+function getSymbolic(){
+
+}
+function check(){
+  //alert(octal_command);
+  alert(document.getElementsByName("chmod_checkbox").value1);
+
+}
+
+</script>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+        <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+        <li><a href="3linuxVI.html">Linuxs VI</a></li>
+
+        <li><a href="4packageManager.html">package Manager</a></li>
+
+        <li><a href="5AboutProcess.html">About process</a></li>
+
+        <li><a href="6Background.html">Background</a></li>
+
+        <li><a href="7AboutUser.html">About User</a></li>
+
+        <li><a href="8Permission.html">Permission</a></li>
+
+        <li><a href="9WebServer.html">Web Server</a></li>
+
+        <li><a href="10SSH.html">SSH</a></li>
+
+        <li><a href="11rsync.html">rsync</a></li>
+
+        <li><a href="12Encryption.html">Encryption</a></li>
+
+        <li><a class="current" href="13Tools.html">Tools</a></li>
+
+      </ul>
+		</div>
+
+    <div class="right">
+
+  <section class="sub3_visual">
+    <nav>
+    <ul class="sub_menu">
+      <li><a href="Tools_scp.html">SCP</a></li>
+      <li><a class="current" href="Tools_chmod">CHMOD</a></li>
+      <li><a href="#">뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+
+    </ul>
+    </nav>
+    <pre style="text-align: center;">
+
+
+
+
+
+
+
+
+       <form method="get" action="form-action.html">
+
+         <table class="tb_chmod">
+           <thead>
+             <tr>
+               <th></th>
+               <th class="text-center">Owner</th>
+               <th class="text-center">Group</th>
+               <th class="text-center">Others</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <th>Read (4)</th>
+               <td><input type="checkbox" value=400 value1="r" name="chmod_checkbox"></td>
+               <td><input type="checkbox" value=40 name="chmod_checkbox"></td>
+               <td><input type="checkbox" value=4 name="chmod_checkbox"></td>
+             </tr>
+             <tr>
+               <th>Write (2)</th>
+               <td><input type="checkbox" value="200" name="chmod_checkbox"></td>
+               <td><input type="checkbox" value="20" name="chmod_checkbox"></td>
+               <td><input type="checkbox" value="2" name="chmod_checkbox"></td>
+             </tr>
+             <tr>
+               <th>Execute (1)</th>
+               <td><input type="checkbox" value="100" name="chmod_checkbox"></td>
+               <td><input type="checkbox" value="10" name="chmod_checkbox"></td>
+               <td><input type="checkbox" value="1" name="chmod_checkbox"></td>
+             </tr>
+           </tbody>
+         </table>
+
+
+
+          <b style="font-size: 15px;color: #0B3861;">폴더명: <input type="text" id="folderName"></b><br>
+
+
+
+
+
+
+         <INPUT type='BUTTON' value='octal' onclick="getOctal()">  <textarea id="octal"></textarea>
+
+         <INPUT type='BUTTON' value='symbolic' onclick="getSymbolic()">  <textarea id="symbolic"></textarea>
+
+           //for test
+          <INPUT type='BUTTON' value='check' onclick="check()">
+
+       </form>
+
+   </pre>
+
+
+
+  </section>
+
+  </div>
+</div>
+
+</body>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+      <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+      <li><a href="3linuxVI.html">Linuxs VI</a></li>
+
+      <li><a href="4packageManager.html">package Manager</a></li>
+
+      <li><a href="5AboutProcess.html">About process</a></li>
+
+      <li><a href="6Background.html">Background</a></li>
+
+      <li><a href="7AboutUser.html">About User</a></li>
+
+      <li><a class="current" href="8Permission.html">Permission</a></li>
+
+      <li><a href="9WebServer.html">Web Server</a></li>
+
+      <li><a href="10SSH.html">SSH</a></li>
+
+      <li><a href="11rsync.html">rsync</a></li>
+
+      <li><a href="12Encryption.html">Encryption</a></li>
+
+      <li><a href="13Tools.html">Tools</a></li>
+
+      </ul>
+		</div>
+
+    <div class="right">
+  <section class="sub3_visual">
+   <pre><p>
+     <span style="background-color:#CEE3F6"><b>권한 변경 (chmod)</b></span>
+     u: owner
+     g: group
+     o: other (not owner, not group)
+     a: all
+
+     $ chmod o-r perm.txt
+     : perm.txt파일의 other read 권한 삭제
+
+     $ chmod o+r perm.txt
+     : perm.txt파일의 other read 권한 허가
+
+     <span style="background-color:#CEE3F6"><b>execute</b></span>
+     $ nano hi-machine.sh
+
+     #!/bin/bash
+     echo 'hi hi hi hi'
+     파일 실행 시도 1
+     $ ./hi-machine.sh -> 허가 거부 뜸
+
+     파일 실행 시도 2
+     $ /bin/bash hi-machine.sh -> 실행됨
+
+     owner 실행 권한 추가하기
+     $ chmod u+x hi-mashine.sh -> 해당 파일 초록색으로 표시됨
+
+     파일 실행 시도 3
+     $ ./hi-machine.sh -> 실행됨
+
+     <span style="background-color:#CEE3F6"><b>directory</b></span>
+     r 모드: 해당 디렉토리에 소속된 파일이나 디렉토리를 열람할 수 있는지?
+     w 모드: 해당 디렉토리 내부를 수정 할 수 있는지? (파일 생성, 수정, 삭제, 파일이름 변경 등)
+     x 모드: 해당 디렉토리로 들어갈 수 있는지?
+     chmod 명령어의 -R 옵션: 재귀적으로 해당 디렉토리 안에 있는 것들의 mode를 모두 바꾼다.
+
+     <span style="background-color:#CEE3F6"><b>Numerical permissions</b></span>
+     숫자	의미	영문으로 표현
+     0	none	---
+     1	execute only	--x
+     2	write only	-w-
+     3	write and execute	-wx
+     4	read only	r--
+     5	read and execute	r-x
+     6	read and write	rw-
+     7	read, write and execute	rwx
+
+     <var>ex) $ chmod 111 perm.txt -> --x--x--x로 변경됨.</var>
+
+     <span style="background-color:#CEE3F6"><b>'=' 사용</b></span>
+     추가/삭제 개념이 아니라 아예 바뀌는 것
+
+     $ chmod a=r perm.txt -> owner, group, other read만 가능
+     $ chmod a= perm.txt -> owner, group, other 아무 권한 없음.
+
+   </p></pre>
+
+  </section>
+
+  </div>
+</div>
+</body>

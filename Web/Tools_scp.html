@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<script type="text/javascript">
+//scp [옵션] [파일명] [원격지_id]@[원격지_ip]:[받는 위치]
+var LTR_temp;
+var RTL_temp;
+var fileName_tmp;
+var fileName;
+
+function radio_check(btn)
+{
+
+          if(btn.value == "LTR")
+          {
+            document.getElementById("location_re").style.visibility = "hidden";
+            document.getElementById("text").style.visibility = "hidden";
+            //document.getElementsByName("get_file").style.visibility = "visible";
+            document.getElementById("or").style.visibility = "visible";
+            document.getElementById("fileName").style.visibility = "visible";
+            document.getElementsByClassName("hide_fileInput").style.visibility = "visible";
+          }
+          else if(btn.value == "RTL")
+          {
+            //document.getElementsByName("get_file").style.visibility = "hidden";
+            document.getElementById("or").style.visibility = "hidden";
+            document.getElementById("fileName").style.visibility = "hidden";
+            document.getElementById("location_re").style.visibility = "visible";
+            document.getElementById("text").style.visibility = "visible";
+            document.getElementsByClassName("hide_fileInput").style.visibility = "visible";
+          }
+}
+
+function input()
+{
+
+  if(document.getElementById("fileName").value == null)
+  {
+    fileName = fileName_tmp;
+  }
+  else
+  {
+    fileName = document.getElementById("fileName").value;
+  }
+  var remoteId = document.getElementById("remoteId").value;
+  var remoteIp = document.getElementById("remoteIp").value;
+  var location_lo = document.getElementById("location_lo").value;
+  var location_re = document.getElementById("location_re").value;
+
+  LTR_temp = "scp " + fileName+" " + remoteId+"@"+remoteIp+":"+location_lo;
+  RTL_temp = "scp " + remoteId+"@"+remoteIp+":"+location_re+" "+location_lo;
+
+  output();
+}
+
+function output()
+{
+  if(document.getElementsByName("direction").value == "LTR"){
+    document.getElementById("output").value = LTR_temp;
+  }
+  else{
+    document.getElementById("output").value = RTL_temp;
+  }
+}
+
+function fileUpload()
+{
+		var fileInput = document.getElementsByClassName("get_file");
+    for( var i=0; i<fileInput.length; i++ ){
+			if( fileInput[i].files.length > 0 ){
+				for( var j = 0; j < fileInput[i].files.length; j++ ){
+					//console.log(fileInput[i].files[j].name);
+          document.getElementById("fileName").value = fileInput[i].files[j].name;
+				}
+			}
+		}
+}
+
+</script>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+        <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+        <li><a href="3linuxVI.html">Linuxs VI</a></li>
+
+        <li><a href="4packageManager.html">package Manager</a></li>
+
+        <li><a href="5AboutProcess.html">About process</a></li>
+
+        <li><a href="6Background.html">Background</a></li>
+
+        <li><a href="7AboutUser.html">About User</a></li>
+
+        <li><a href="8Permission.html">Permission</a></li>
+
+        <li><a href="9WebServer.html">Web Server</a></li>
+
+        <li><a href="10SSH.html">SSH</a></li>
+
+        <li><a href="11rsync.html">rsync</a></li>
+
+        <li><a href="12Encryption.html">Encryption</a></li>
+
+        <li><a class="current" href="13Tools.html">Tools</a></li>
+        
+      </ul>
+		</div>
+
+    <div class="right">
+
+  <section class="sub3_visual">
+    <nav>
+    <ul class="sub_menu">
+      <li><a class="current" href="Tools_scp.html">SCP</a></li>
+      <li><a href="Tools_chmod.html">CHMOD</a></li>
+      <li><a href="#">뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+      <li><a href="#">또뭐있지</a></li>
+
+    </ul>
+    </nav>
+
+   <pre style="text-align: center;">
+
+
+
+
+
+
+
+
+
+       <input type="radio" name="direction" value="LTR" onclick="radio_check(this);"><b>Local to Remote</b>
+       <input type="radio" name="direction" value="RTL" onclick="radio_check(this);"><b>Remote to Local</b>
+
+
+
+
+
+
+       <input type="file" class="get_file" name="get_file" onchange="fileUpload()" multiple><b id="or">or   입력:</b> <input type="text" id="fileName"><br>
+
+
+                  <b>원격지_id:</b> <input type="text" id="remoteId"><br>
+                  <b>원격지_ip:</b> <input type="text" id="remoteIp"><br>
+
+                  <b>받는위치:</b> <input type="text" id="location_lo"><br>
+                  <b id="text">원본위치:</b> <input type="text" id="location_re"><br>
+
+
+       <INPUT type='BUTTON' value='변환' onclick="input()"> <textarea id="output"></textarea>
+
+
+
+
+
+
+
+         <b><var>*복수일 경우*</var></b>
+         <p>     scp [옵션] [파일명 1] [파일명 2] [원격지_id]@[원격지_ip]:[받는 위치]</p>
+
+
+     </pre>
+
+
+  </section>
+
+  </div>
+</div>
+
+</body>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+      <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+      <li><a class="current" href="3linuxVI.html">Linuxs VI</a></li>
+
+      <li><a href="4packageManager.html">package Manager</a></li>
+
+      <li><a href="5AboutProcess.html">About process</a></li>
+
+      <li><a href="6Background.html">Background</a></li>
+
+      <li><a href="7AboutUser.html">About User</a></li>
+
+      <li><a href="8Permission.html">Permission</a></li>
+
+      <li><a href="9WebServer.html">Web Server</a></li>
+
+      <li><a href="10SSH.html">SSH</a></li>
+
+      <li><a href="11rsync.html">rsync</a></li>
+
+      <li><a href="12Encryption.html">Encryption</a></li>
+
+      <li><a href="13Tools.html">Tools</a></li>
+      </ul>
+		</div>
+
+    <div class=" right">
+
+  <section class="sub2_visual">
+   <pre><p>
+<span style="background-color:#CEE3F6"><b> vi 실행하기</b></span>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-s3tp">명령어 </th>
+    <th class="tg-i7w7">동작 </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">vi file </span></td>
+    <td class="tg-zqva">file을 연다 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">vi file1 file2</td>
+    <td class="tg-zqva">file1 과 file2 를 차례로 연다 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">view file </td>
+    <td class="tg-zqva">file을 읽기 모드로 연다 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">vi -R file </td>
+    <td class="tg-zqva">file을 읽기 모드로 연다 </td>
+  </tr>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">vi + file</span></td>
+    <td class="tg-zqva">file을 열때 커서가 file 본문의 마지막 행에 위치한다. </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">vi +n file </td>
+    <td class="tg-zqva">file을 열어 n행에 위치한다. </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">vi -r file</td>
+    <td class="tg-zqva">손상된 파일 회복</td>
+  </tr>
+</tbody>
+</table>
+
+<span style="background-color:#CEE3F6"><b> 입력모드 전환 명령어</b></span>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-s3tp">명령어 </th>
+    <th class="tg-i7w7">동작 </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">i </span></td>
+    <td class="tg-zqva">커서 있는데서 입력모드 전환 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">I</td>
+    <td class="tg-zqva">커서 왼쪽, 행의 처음에 몬자 삽입 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">a </td>
+    <td class="tg-zqva">커서 있는 줄 끝에서 입력모드 전환 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">A</td>
+    <td class="tg-zqva">커서 오른쪽, 행의 끝에 문자 삽입 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">o </td>
+    <td class="tg-zqva">커서 있는 줄 아래에 빈 줄 삽입 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">O </td>
+    <td class="tg-zqva">커서 있는 줄 위에 빈 줄을 삽입 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">R </td>
+    <td class="tg-zqva">덮어쓰기 모드로 전환 </td>
+  </tr>
+</tbody>
+</table>
+
+<span style="background-color:#CEE3F6"><b> 문자열 찾기 및 대체</b></span>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-s3tp">명령어</th>
+    <th class="tg-i7w7">동작</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">/name</span></td>
+    <td class="tg-zqva">name 문자열 찾기 </td>
+  </tr>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">n</span></td>
+    <td class="tg-zqva">다음 name으로 이동</td>
+  </tr>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">N</span></td>
+    <td class="tg-zqva">n과 같으며 역방향으로 이동 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">:s/str/rep</td>
+    <td class="tg-zqva">현재 행의 str을 rep로 대체</td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">:l,.s/str/rep/ </td>
+    <td class="tg-zqva">1부터 현재 행의 str을 rep로 대체 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">:%s/str/rep/g </td>
+    <td class="tg-zqva">파일 전체 str을 rep로 전부 대체 </td>
+  </tr>
+</tbody>
+</table>
+
+<span style="background-color:#CEE3F6"><b> 파일 저장 및 불러오기</b></span>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-s3tp">명령어 </th>
+    <th class="tg-i7w7">동작 </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">:w </span></td>
+    <td class="tg-zqva">지정된 파일에 저장 </td>
+  </tr>
+  <tr>
+    <td class="tg-xffk"><span style="color:#2F9D27">:wq</span>, :x, ZZ </td>
+    <td class="tg-zqva">지정된 파일에 저장하고 vi를 종료 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">:w php.ini </td>
+    <td class="tg-zqva">php.ini 파일에 저장 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva"> <span style="color:#2F9D27">:q</span></td>
+    <td class="tg-zqva">저장하지 않고 종료 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">:q!</td>
+    <td class="tg-zqva">저장하지 않고 강제 종료 </td>
+  </tr>
+  <tr>
+    <td class="tg-zqva">:wq php.ini </td>
+    <td class="tg-zqva">php.ini에 저장하고 vi를 종료 </td>
+  </tr>
+</tbody>
+</table>
+
+   </p></pre>
+
+  </section>
+
+  </div>
+</div>
+</body>

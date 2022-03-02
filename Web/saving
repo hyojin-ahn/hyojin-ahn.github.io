@@ -1,0 +1,95 @@
+div._checkbox1
+{
+    font-size: 20px;
+    width: 250px;
+    height: 200px;
+    vertical-align: middle;
+    float: left;
+    border: none;
+    background: #0B3861;
+    color: #FFFFFF;
+}
+div._checkbox2
+{
+    font-size: 20px;
+    width: 250px;
+    height: 200px;
+    vertical-align: middle;
+    text-align: middle;
+    float: left;
+    border: none;
+    background: #0B3861;
+    color: #FFFFFF;
+}
+div._checkbox3
+{
+    font-size: 20px;
+    width: 250px;
+    height: 200px;
+    vertical-align: middle;
+    float: right;
+    border: none;
+    background: #0B3861;
+    color: #FFFFFF;
+}
+----------------------------------------------------------------------------------------------
+
+
+<p><input type="submit" value="변환"> <input type="reset" value="리셋"></p>
+
+<div class="_checkbox1">
+
+  <span style="background-color:#0B243B"><b> Owner </b></span>
+
+  <label><input type="checkbox" name="color" value="Read"> Read</label>
+  <label><input type="checkbox" name="color" value="Write"> Write</label>
+  <label><input type="checkbox" name="color" value="Execute"> Execute</label>
+</div>
+
+<div class="_checkbox3">
+  <span style="background-color:#0B243B"><b> Public </b></span>
+
+  <label><input type="checkbox" name="color" value="Read"> Read</label>
+  <label><input type="checkbox" name="color" value="Write"> Write</label>
+  <label><input type="checkbox" name="color" value="Execute"> Execute</label>
+</div>
+
+<div class="_checkbox2">
+   <span style="background-color:#0B243B"><b> Group </b></span>
+
+   <label><input type="checkbox" name="color" value="Read"> Read</label>
+   <label><input type="checkbox" name="color" value="Write"> Write</label>
+   <label><input type="checkbox" name="color" value="Execute"> Execute</label>
+ </div>
+------------------------------------------------------------------------------------------------
+function make_form(){
+  var RTL_form = document.createElement('form');
+  RTL_form.id='inputs_RTL';
+  RTL_form.method='get';
+
+  var local_location_input = document.createElement('input');
+  local_location_input.setAttribute("type","text");
+  local_location_input.setAttribute("id","location_re");
+
+  RTL_form.appendChild(local_location_input);
+}
+
+function addForm(){
+
+  var addedFormDiv = document.getElementById("addedFormDiv");
+  str+="원본 위치: <input type='text' id='fileName'><BR>";
+
+  var addedDiv = document.createElement("div");
+
+  addedDiv.id = "rtl_added"+count;
+
+  addedDiv.innerHTML = str;
+
+  addedFormDiv.prependChild(addedDiv);
+
+}
+function delForm(){
+
+  document.getElementById('fileName').remove;
+
+}

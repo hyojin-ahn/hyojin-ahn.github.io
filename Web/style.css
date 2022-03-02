@@ -1,0 +1,132 @@
+textarea{
+  width: 350px;
+  height: 20px;
+  resize:  none;
+}
+
+div
+  {
+     width: 100%;
+     height: auto;
+     min-height: 950px;
+     border: 1px solid #003458;
+   }
+div.left
+  {
+     width: 20%;
+     float: left;
+     box-sizing: border-box;
+     background: #0B3861;
+   }
+div.right
+  {
+     width: 80%;
+     float: right;
+     padding: 20px;
+     box-sizing: border-box;
+     background: #F7F2E0;
+     position: relative;
+   }
+div.hide_fileInput{
+  border: 0;
+  position: absolute;
+}
+
+
+
+
+              ul {
+                    list-style-type: none;
+                    background-color: #0B3861;  // 배경색
+                    width: 150px;
+                    margin: 10;
+                    padding: 30;
+                    vertical-align: middle;     // 세로 정렬 가운데로 설정
+                    text-align: center;         // 글씨 정렬 가운데로 설정
+
+              }
+              li a {
+                text-decoration:none;                      // 기본 효과(밑줄 등)을 없앰
+                display: block;
+                color: #FFFFFF;                            // 글씨 색
+                padding: 8px;
+                display: block;                            // 링크 전체 영역
+                width: 150px;                              // 메뉴링크 넓이
+                font-size: 25px;                           // 폰트 사이즈
+                font-weight: bold;                         // 폰트를 굵게
+              }
+
+              li a.current {
+                background-color: #0489B1;
+                color: #FFFFFF;
+              }
+              li a:hover:not(.current) {
+                background-color: #F5A9BC;    // 배경색
+                color: #0B3861;               // 글씨
+              }
+              .sub_menu li{
+                float: left;
+                background-color: #0B3861;  // 배경색
+                width: 100%;
+                margin-left: 100px;
+                padding: 10px;
+
+              }
+
+              .tb_chmod  {
+                border-collapse:collapse;
+                border-spacing:0;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%
+              }
+              .tb_chmod td{
+                border-color:#0B4C5F;
+                border-style:solid;
+                border-width:1px;color: #0B3861;
+                font-family:Arial, sans-serif;
+                font-size:25px;
+                overflow:hidden;
+                padding:10px 5px;
+                word-break:normal;
+              }
+              .tb_chmod th{
+                border-color:#0B4C5F;
+                border-style:solid;
+                border-width:1px;color: #0B3861;
+                font-family:Arial, sans-serif;
+                font-size:25px;
+                font-weight:bold;
+                overflow:hidden;padding:10px 5px;
+                word-break:normal;
+              }
+              .tg  {
+                border-collapse:collapse;
+                border-spacing:0;
+                width: 50%;
+              }
+              .tg td{
+                border-color:black;
+                border-style:solid;
+                border-width:1px;
+                font-family:Arial, sans-serif;
+                font-size:14px;
+                overflow:hidden;
+                padding:10px 5px;
+                word-break:normal;
+              }
+              .tg th{
+                border-color:black;
+                border-style:solid;
+                border-width:1px;
+                font-family:Arial, sans-serif;
+                font-size:14px;
+                font-weight:normal;
+                overflow:hidden;
+                padding:10px 5px;
+                word-break:normal;
+              }
+              .tg .tg-i7w7{background-color:#D9E5FF;border-color:inherit;color:#666;font-weight:bold;text-align:center;vertical-align:top}
+              .tg .tg-s3tp{background-color:#D9E5FF;border-color:#ecf4ff;color:#666;font-weight:bold;text-align:center;vertical-align:top}
+              .tg .tg-xffk{background-color:#FFF;color:#2F9D27;text-align:center;vertical-align:top}
+              .tg .tg-zqva{background-color:#FFF;color:#666;text-align:center;vertical-align:top}

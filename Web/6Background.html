@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+        <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+        <li><a href="3linuxVI.html">Linuxs VI</a></li>
+
+        <li><a href="4packageManager.html">package Manager</a></li>
+
+        <li><a href="5AboutProcess.html">About process</a></li>
+
+        <li><a class="current" href="6Background.html">Background</a></li>
+
+        <li><a href="7AboutUser.html">About User</a></li>
+
+        <li><a href="8Permission.html">Permission</a></li>
+
+        <li><a href="9WebServer.html">Web Server</a></li>
+
+        <li><a href="10SSH.html">SSH</a></li>
+
+        <li><a href="11rsync.html">rsync</a></li>
+
+        <li><a href="12Encryption.html">Encryption</a></li>
+
+        <li><a href="13Tools.html">Tools</a></li>
+
+      </ul>
+		</div>
+
+    <div class="right">
+  <section class="sub3_visual">
+   <pre><p>
+     <span style="background-color:#CEE3F6"><b>백그라운드 실행</b></span>
+     ex) nano 에디터 실행하다가 ctrl + z -> 백그라운드에서 돌아가도록 등록
+
+     <span style="background-color:#CEE3F6"><b>백그라운드로 돌아가는 프로그램 확인</b></span>
+     $ jobs
+     : +가 붙어있는 프로그램 -> fg 실행했을 때, 실행되는 프로그램
+     : -가 붙어있는 프로그램 -> fg 실행했을 때, + 다음으로 실행될 프로그램
+
+     <span style="background-color:#CEE3F6"><b>foreground로 돌아가기</b></span>
+     $ fg
+     $ fg %번호 : 해당 번호 프로그램으로 돌아간다.
+
+     <span style="background-color:#CEE3F6"><b>백그라운드 프로그램 죽이기</b></span>
+     $ kill
+     $ kill -9 %번호 : 강제종료
+
+   </p></pre>
+
+  </section>
+
+  </div>
+</div>
+</body>

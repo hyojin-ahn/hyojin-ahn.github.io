@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+      <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+      <li><a href="3linuxVI.html">Linuxs VI</a></li>
+
+      <li><a href="4packageManager.html">package Manager</a></li>
+
+      <li><a href="5AboutProcess.html">About process</a></li>
+
+      <li><a href="6Background.html">Background</a></li>
+
+      <li><a href="7AboutUser.html">About User</a></li>
+
+      <li><a href="8Permission.html">Permission</a></li>
+
+      <li><a href="9WebServer.html">Web Server</a></li>
+
+      <li><a class="current" href="10SSH.html">SSH</a></li>
+
+      <li><a href="11rsync.html">rsync</a></li>
+
+      <li><a href="12Encryption.html">Encryption</a></li>
+
+      <li><a href="13Tools.html">Tools</a></li>
+
+      </ul>
+		</div>
+
+    <div class="right">
+  <section class="sub3_visual" style="list-style-type:square;">
+
+   <pre><p>
+     <li>다른 컴퓨터를 원격제어 할 때 사용</li>
+     <li>클라이언트를 원격접속 시도하려는 컴퓨터, 서버를 원격접속 당하는 컴퓨터라고 한다면,
+     클라이언트 컴퓨터에는 ssh client 프로그램이 있어야하고 서버에는 ssh server 프로그램이 있어야 한다.</li>
+     <li>오늘날 대부분의 유닉스 계열 시스템에서는 ssh 서버가 설치되어있기 때문에 설치할 필요가 거의 없다.</li>
+     <li>원격 접속 시도
+     $ ssh 계정명@접속아이피
+     (처음 접속하면 진짜 접속할 건지 물어보는데 yes 하면 됨.)</li>
+     <li>포트번호와 함께 접속 시도
+     $ ssh -p 포트번호 계정명@접속아이피</li>
+
+     <span style="background-color:#CEE3F6"><b>비밀번호 입력없이 로그인하기</b></span>
+     접속을 시도하는 컴퓨터: 내 컴퓨터
+     접속 대상이 되는 컴퓨터: 원격 컴퓨터
+
+     원격 컴퓨터에 내 컴퓨터의 공개키를 저장해두면, 원격 컴퓨터에 로그인 없이 (비밀번호 입력없이/인증 없이) 로그인 가능
+
+     <var>어떤 컴퓨터가 인증된 컴퓨터?</var>
+     원격 컴퓨터의 ~/.ssh/authorized_keys 파일에 들어있는 키 목록을 보고 판단한다. (authorized_keys 파일은 있을 수도 있고 없을 수도 있음.)
+
+
+     <span style="background-color:#CEE3F6"><b>원격 컴퓨터에 내 컴퓨터를 인증시키는 방법</b></span>
+
+     1.ssh 공개키 비밀키 만들기 [내 컴퓨터에서 실행]
+     $ ssh-keygen
+     Q. Enter file in which to save the key?: (저장되는 위치) 엔터
+     Q. Enter passphrase: 비밀번호 쓰려면 입력하고 아니면 그냥 엔터
+     ~/.ssh 들어가보면 id_rsa(ssh private key), id_rsa.pub(ssh public key)가 있음. (id_rsa는 절대로 비공개)
+
+     2.authorized_keys 파일 끝에다가 내 컴퓨터의 id_rsa.pub 내용을 붙여넣는다. (ssh-copy-id 명령어를 사용하여 안전하게 붙여넣자.) [내 컴퓨터에서 실행]
+     -> $ ssh-copy-id (원격 컴퓨터 계정)@(원격 컴퓨터 주소)
+     -> 원격 컴퓨터의 비밀번호 입력
+
+     3.잘 붙여넣어졌는지 확인 [원격 컴퓨터에서 실행]
+     $ cat ~/.ssh/authorized_keys
+
+     4.로그인 없이 로그인 시도 [내 컴퓨터에서 실행]
+     $ ssh (원격 컴퓨터 계정)@(원격 컴퓨터 주소)
+     -> 비밀번호 입력 없이 로그인 가능
+   </p></pre>
+
+  </section>
+
+  </div>
+</div>
+</body>

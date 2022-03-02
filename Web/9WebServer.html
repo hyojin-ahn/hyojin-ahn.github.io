@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>Linuxs Tips</title>
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+  <h1><center>[Linuxs] 명령어 및 팁 정리</center></h1>
+
+  <div class="row">
+
+		<div class="left">
+      <ul>
+
+        <li><a href="1linuxTips.html">Home</a></li>
+
+        <li><a href="2directoryNfile.html">Directory & File</a></li>
+
+        <li><a href="3linuxVI.html">Linuxs VI</a></li>
+
+        <li><a href="4packageManager.html">package Manager</a></li>
+
+        <li><a href="5AboutProcess.html">About process</a></li>
+
+        <li><a href="6Background.html">Background</a></li>
+
+        <li><a href="7AboutUser.html">About User</a></li>
+
+        <li><a href="8Permission.html">Permission</a></li>
+
+        <li><a class="current" href="9WebServer.html">Web Server</a></li>
+
+        <li><a href="10SSH.html">SSH</a></li>
+
+        <li><a href="11rsync.html">rsync</a></li>
+
+        <li><a href="12Encryption.html">Encryption</a></li>
+
+        <li><a href="13Tools.html">Tools</a></li>
+
+      </ul>
+		</div>
+
+    <div class="right">
+  <section class="sub3_visual">
+   <pre><p>
+
+     <span style="background-color:#CEE3F6"><b>웹서버 설치(TOMCAT9)</b></span>
+     $ sudo apt install tomcat9 tomcat9-admin
+
+     <span style="background-color:#CEE3F6"><b>명령어(TOMCAT9)</b></span>
+     $ sudo systemctl enable tomcat9
+     $ sudo systemctl disable tomcat9
+     $ service tomcat9 start
+     $ service tomcat9 sto
+
+     <span style="background-color:#CEE3F6"><b>방화벽 설정</b></span>
+     $ sudo apt-get install iptables-persistent netfilter-persistent
+     -> yes, yes
+
+     $ sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+     $ sudo iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+     $ sudo iptables -A INPUT -i lo -j ACCEPT
+     $ sudo iptables -A INPUT -p icmp -j ACCEPT
+
+
+
+
+     <span style="background-color:#CEE3F6"><b>웹서버 설치 (apache2)</b></span>
+     $ sudo apt-get update
+     $ sudo apt-get install apache2
+
+     <span style="background-color:#CEE3F6"><b>웹서버 시작, 중지, 재시작</b></span>
+     $ sudo service apache2 start
+     $ sudo service apache2 stop
+     $ sudo service apache2 restart
+
+     <span style="background-color:#CEE3F6"><b>쉘을 통해 웹서버 접속 (쉘에서 웹브라우징) : elinks 사용</b></span>
+     $ sudo apt-get install elinks
+     $ elinks http://10.0.2.15/ (컴퓨터 IP 입력) -> local 서버 접속
+
+     <span style="background-color:#CEE3F6"><b>웹서버 설정</b></span>
+     /etc/apache2 에 아파치 설정파일 있음. (apache2.conf)
+     웹서버가 어떤 storage에서 파일을 찾을 것인가는 설정파일에서 확인.
+     default는 /var/www/html 인데, 설정 바꿔서 변경시킬 수 있음.
+     이때 /var/www/html를 document root라고 부른다. (웹페이지를 찾는 최상위 디렉토리)
+
+     <span style="background-color:#CEE3F6"><b>웹서버 로그 확인</b></span>
+     /etc/apache2/sites-enabled/000-default.conf 가보면 로그는 어디에 기록할지 명시해둔 부분이 있다. (/var/log/apache2)
+
+     access.log: 누군가가 웹서버에 접속할 때마다 기록이 남겨짐.
+     error.log: 에러 로그 확인 가능
+
+     <span style="background-color:#CEE3F6"><b>실시간으로 확인하려면?</b></span>
+     $ tail -f /var/log/apache2/access.log
+   </p></pre>
+
+  </section>
+
+  </div>
+</div>
+</body>
